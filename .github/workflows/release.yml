@@ -1,0 +1,32 @@
+name: Release Module
+
+on:
+  push:
+    tags:
+      - "[0-9]+.[0-9]+.[0-9]+"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Set version from tag
+        run: |
+          jq --arg version "$GITHUB_REF_NAME" '.version = $version' module.json > module.tmp.json
+          mv module.tmp.json module.json
+
+      - name: Zip module contents
+        run: |
+          zip -r module.zip module.json README.md CHANGELOG.md LICENSE icon.svg scripts/ sounds/
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            module.json
+            module.zip
+          generate_release_notes: true

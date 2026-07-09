@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2b2f38"/>
+      <stop offset="100%" stop-color="#14161b"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="2" y="2" width="96" height="96" rx="14" fill="url(#bg)" stroke="#f2c14e" stroke-width="4"/>
+
+  <!-- Up arrow -->
+  <path d="M50 14 L70 36 L58 36 L58 52 L42 52 L42 36 L30 36 Z" fill="#f2c14e"/>
+
+  <!-- XP text -->
+  <text x="50" y="84" text-anchor="middle" font-family="Signika, Arial, sans-serif" font-weight="700" font-size="34" fill="#f7f7f5">XP</text>
+</svg>
